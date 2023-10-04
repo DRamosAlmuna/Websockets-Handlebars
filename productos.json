@@ -1,0 +1,142 @@
+[
+  {
+    "title": "Laptop ASUS VivoBook",
+    "description": "Laptop ultradelgada con pantalla Full HD.",
+    "code": "ASUS123",
+    "price": 799.99,
+    "status": true,
+    "stock": 50,
+    "category": "Tecnología",
+    "thumbnails": [
+      "laptop1.jpg",
+      "laptop2.jpg"
+    ],
+    "id": 1
+  },
+  {
+    "title": "Zapatillas Nike Air Max",
+    "description": "Zapatillas deportivas.",
+    "code": "NIKE456",
+    "price": 129.99,
+    "status": true,
+    "stock": 100,
+    "category": "Deportes",
+    "thumbnails": [
+      "nike1.jpg",
+      "nike2.jpg"
+    ],
+    "id": 2
+  },
+  {
+    "title": "Smartphone Samsung Galaxy S21",
+    "description": "Smartphone Samsung Galaxy S21 con pantalla LED.",
+    "code": "SAMSUNG789",
+    "price": 899.99,
+    "status": true,
+    "stock": 30,
+    "category": "Tecnología",
+    "thumbnails": [
+      "samsung1.jpg",
+      "samsung2.jpg"
+    ],
+    "id": 3
+  },
+  {
+    "title": "Cámara DSLR Canon EOS 5D Mark IV",
+    "description": "Cámara réflex digital.",
+    "code": "CANON101",
+    "price": 2499.99,
+    "status": true,
+    "stock": 15,
+    "category": "Fotografía",
+    "thumbnails": [
+      "canon1.jpg",
+      "canon2.jpg"
+    ],
+    "id": 4
+  },
+  {
+    "title": "Reloj Casio G-Shock",
+    "description": "Reloj deportivo.",
+    "code": "CASIO202",
+    "price": 79.99,
+    "status": true,
+    "stock": 80,
+    "category": "Moda",
+    "thumbnails": [
+      "casio1.jpg",
+      "casio2.jpg"
+    ],
+    "id": 5
+  },
+  {
+    "title": "Tablet Apple iPad Air",
+    "description": "Tablet Apple iPad Air con pantalla Retina.",
+    "code": "IPAD303",
+    "price": 599.99,
+    "status": true,
+    "stock": 25,
+    "category": "Tecnología",
+    "thumbnails": [
+      "ipad1.jpg",
+      "ipad2.jpg"
+    ],
+    "id": 6
+  },
+  {
+    "title": "Auriculares Sony WH-1000XM4",
+    "description": "Auriculares inalámbricos con cancelación de ruido.",
+    "code": "SONY404",
+    "price": 349.99,
+    "status": true,
+    "stock": 40,
+    "category": "Audio",
+    "thumbnails": [
+      "sony1.jpg",
+      "sony2.jpg"
+    ],
+    "id": 7
+  },
+  {
+    "title": "Bicicleta de Montaña Trek",
+    "description": "Bicicleta de montaña Trek.",
+    "code": "TREK505",
+    "price": 899.99,
+    "status": true,
+    "stock": 10,
+    "category": "Deportes",
+    "thumbnails": [
+      "trek1.jpg",
+      "trek2.jpg"
+    ],
+    "id": 8
+  },
+  {
+    "title": "Libro Cien Años de Soledad",
+    "description": "Novela clásica.",
+    "code": "LIBRO606",
+    "price": 15.99,
+    "status": true,
+    "stock": 60,
+    "category": "Libros",
+    "thumbnails": [
+      "libro1.jpg",
+      "libro2.jpg"
+    ],
+    "id": 9
+  },
+  {
+    "title": "Juego de Mesa Catan",
+    "description": "Juego de mesa de  estrategia.",
+    "code": "CATAN707",
+    "price": 39.99,
+    "status": true,
+    "stock": 20,
+    "category": "Juegos",
+    "thumbnails": [
+      "catan1.jpg",
+      "catan2.jpg"
+    ],
+    "id": 10
+  }
+]
