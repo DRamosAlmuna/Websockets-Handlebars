@@ -6,9 +6,16 @@ const PRODUCTS_FILE = 'productos.json';
 
 // Obtiene los productos del json
 router.get('/', (req, res) => {
-    const products = JSON.parse(fs.readFileSync(PRODUCTS_FILE, 'utf-8'));
+  const products = JSON.parse(fs.readFileSync(PRODUCTS_FILE, 'utf-8'));
+  const limit = parseInt(req.query.limit);
+
+  if (limit && limit > 0) {
+    const limitedProducts = products.slice(0, limit);
+    res.json(limitedProducts);
+  } else {
     res.json(products);
-  });
+  }
+});
   
   // Obtiene un producto por su ID
   router.get('/:pid', (req, res) => {

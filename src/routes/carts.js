@@ -31,11 +31,12 @@ router.post('/', (req, res) => {
     }
   });
   
-  // Agrega un producto a un carrito
-  router.post('/:cid/product/:pid', (req, res) => {
-    const cartId = parseInt(req.params.cid);
-    const productId = parseInt(req.params.pid);
-    const quantity = parseInt(req.body.quantity);
+// Agrega un producto al carrito
+router.post('/:cid/product/:pid', (req, res) => {
+  const cartId = parseInt(req.params.cid);
+  const productId = parseInt(req.params.pid);
+
+  const quantity = 1;
   
     const carts = JSON.parse(fs.readFileSync(CARTS_FILE, 'utf-8'));
     const cart = carts.find((c) => c.id === cartId);
@@ -46,7 +47,7 @@ router.post('/', (req, res) => {
       const existingProduct = cart.products.find((p) => p.product === productId);
   
       if (existingProduct) {
-        existingProduct.quantity += quantity;
+        existingProduct.quantity++;
       } else {
         cart.products.push({ product: productId, quantity });
       }

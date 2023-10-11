@@ -12,7 +12,20 @@
       },
       {
         "product": 3,
-        "quantity": null
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "id": 178,
+    "products": [
+      {
+        "product": 1,
+        "quantity": 2
+      },
+      {
+        "product": 5,
+        "quantity": 2
       }
     ]
   }
