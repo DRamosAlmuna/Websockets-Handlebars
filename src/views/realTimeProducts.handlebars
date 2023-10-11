@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productos en Tiempo Real</title>
+</head>
+<body>
+    <h1>Productos en Tiempo Real</h1>
+
+    <form id="product-form">
+        <input type="text" name="productName" placeholder="Nombre del producto">
+        <button type="submit">Agregar Producto</button>
+    </form>
+
+    <ul id="productList">
+        {{#each products}}
+        {{> product-list}}
+        {{/each}}
+    </ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        // Escuchar el evento de producto creado
+        socket.on('producto-creado', (nuevoProducto) => {
+            // Agregar el nuevo producto a la lista en tiempo real
+            const productList = document.getElementById('productList');
+            const newItem = document.createElement('li');
+            newItem.innerHTML = `
+                <h2>${nuevoProducto.title}</h2>
+                <p>${nuevoProducto.description}</p>
+                <p>Código: ${nuevoProducto.code}</p>
+                <p>Precio: $${nuevoProducto.price}</p>
+                <p>Estado: ${nuevoProducto.status ? 'Disponible' : 'No Disponible'}</p>
+                <p>Stock: ${nuevoProducto.stock} unidades</p>
+                <p>Categoría: ${nuevoProducto.category}</p>
+                <p>Imágenes:</p>
+                <ul>
+                    ${nuevoProducto.thumbnails.map(image => `<li><img src="${image}" alt="Imagen del producto"></li>`).join('')}
+                </ul>
+            `;
+            productList.appendChild(newItem);
+        });
+
+        // Escuchar el evento de producto eliminado
+        socket.on('producto-eliminado', (productoEliminado) => {
+            // Eliminar el producto de la lista en tiempo real
+            const productList = document.getElementById('productList');
+            const items = productList.getElementsByTagName('li');
+            for (let i = 0; i < items.length; i++) {
+                const title = items[i].querySelector('h2').textContent;
+                if (title === productoEliminado.title) {
+                    productList.removeChild(items[i]);
+                    break;
+                }
+            }
+        });
+
+        // Manejar el envío del formulario para agregar productos en tiempo real
+        document.getElementById('product-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const productName = e.target.productName.value;
+
+            // Realizar una solicitud POST al servidor para agregar el producto
+            fetch('/api/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ title: productName }) // Envía los datos del producto que deseas agregar
+            })
+            .then(response => response.json())
+            .then(nuevoProducto => {
+                // Emitir un evento para notificar a otros clientes sobre el producto recién creado
+                socket.emit('producto-creado', nuevoProducto);
+            })
+            .catch(error => {
+                console.error('Error al agregar el producto:', error);
+            });
+
+            // Limpiar el campo del formulario después de agregar el producto
+            e.target.productName.value = '';
+        });
+    </script>
+</body>
+</html>
